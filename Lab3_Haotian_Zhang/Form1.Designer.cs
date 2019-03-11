@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             System.Windows.Forms.Label productIDLabel;
             System.Windows.Forms.Label productNameLabel;
             System.Windows.Forms.Label supplierIDLabel;
@@ -40,37 +39,38 @@
             System.Windows.Forms.Label unitsOnOrderLabel;
             System.Windows.Forms.Label reorderLevelLabel;
             System.Windows.Forms.Label discontinuedLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.productsBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
+            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.productsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.northwindDataSet = new Lab3_Haotian_Zhang.NorthwindDataSet();
+            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
+            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.productsBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.productIDTextBox = new System.Windows.Forms.TextBox();
             this.productNameTextBox = new System.Windows.Forms.TextBox();
             this.supplierIDComboBox = new System.Windows.Forms.ComboBox();
+            this.suppliersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.categoryIDComboBox = new System.Windows.Forms.ComboBox();
+            this.categoriesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.quantityPerUnitTextBox = new System.Windows.Forms.TextBox();
             this.unitPriceTextBox = new System.Windows.Forms.TextBox();
             this.unitsInStockTextBox = new System.Windows.Forms.TextBox();
             this.unitsOnOrderTextBox = new System.Windows.Forms.TextBox();
             this.reorderLevelTextBox = new System.Windows.Forms.TextBox();
             this.discontinuedCheckBox = new System.Windows.Forms.CheckBox();
-            this.productsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.northwindDataSet = new Lab3_Haotian_Zhang.NorthwindDataSet();
             this.productsTableAdapter = new Lab3_Haotian_Zhang.NorthwindDataSetTableAdapters.ProductsTableAdapter();
             this.tableAdapterManager = new Lab3_Haotian_Zhang.NorthwindDataSetTableAdapters.TableAdapterManager();
             this.order_DetailsTableAdapter = new Lab3_Haotian_Zhang.NorthwindDataSetTableAdapters.Order_DetailsTableAdapter();
-            this.suppliersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.suppliersTableAdapter = new Lab3_Haotian_Zhang.NorthwindDataSetTableAdapters.SuppliersTableAdapter();
-            this.categoriesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.categoriesTableAdapter = new Lab3_Haotian_Zhang.NorthwindDataSetTableAdapters.CategoriesTableAdapter();
             this.order_DetailsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.order_DetailsDataGridView = new System.Windows.Forms.DataGridView();
@@ -98,6 +98,96 @@
             ((System.ComponentModel.ISupportInitialize)(this.order_DetailsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.order_DetailsDataGridView)).BeginInit();
             this.SuspendLayout();
+            // 
+            // productIDLabel
+            // 
+            productIDLabel.AutoSize = true;
+            productIDLabel.Location = new System.Drawing.Point(12, 38);
+            productIDLabel.Name = "productIDLabel";
+            productIDLabel.Size = new System.Drawing.Size(61, 13);
+            productIDLabel.TabIndex = 1;
+            productIDLabel.Text = "Product ID:";
+            // 
+            // productNameLabel
+            // 
+            productNameLabel.AutoSize = true;
+            productNameLabel.Location = new System.Drawing.Point(12, 64);
+            productNameLabel.Name = "productNameLabel";
+            productNameLabel.Size = new System.Drawing.Size(78, 13);
+            productNameLabel.TabIndex = 3;
+            productNameLabel.Text = "Product Name:";
+            // 
+            // supplierIDLabel
+            // 
+            supplierIDLabel.AutoSize = true;
+            supplierIDLabel.Location = new System.Drawing.Point(12, 90);
+            supplierIDLabel.Name = "supplierIDLabel";
+            supplierIDLabel.Size = new System.Drawing.Size(62, 13);
+            supplierIDLabel.TabIndex = 5;
+            supplierIDLabel.Text = "Supplier ID:";
+            // 
+            // categoryIDLabel
+            // 
+            categoryIDLabel.AutoSize = true;
+            categoryIDLabel.Location = new System.Drawing.Point(12, 117);
+            categoryIDLabel.Name = "categoryIDLabel";
+            categoryIDLabel.Size = new System.Drawing.Size(66, 13);
+            categoryIDLabel.TabIndex = 7;
+            categoryIDLabel.Text = "Category ID:";
+            // 
+            // quantityPerUnitLabel
+            // 
+            quantityPerUnitLabel.AutoSize = true;
+            quantityPerUnitLabel.Location = new System.Drawing.Point(12, 144);
+            quantityPerUnitLabel.Name = "quantityPerUnitLabel";
+            quantityPerUnitLabel.Size = new System.Drawing.Size(90, 13);
+            quantityPerUnitLabel.TabIndex = 9;
+            quantityPerUnitLabel.Text = "Quantity Per Unit:";
+            // 
+            // unitPriceLabel
+            // 
+            unitPriceLabel.AutoSize = true;
+            unitPriceLabel.Location = new System.Drawing.Point(12, 170);
+            unitPriceLabel.Name = "unitPriceLabel";
+            unitPriceLabel.Size = new System.Drawing.Size(56, 13);
+            unitPriceLabel.TabIndex = 11;
+            unitPriceLabel.Text = "Unit Price:";
+            // 
+            // unitsInStockLabel
+            // 
+            unitsInStockLabel.AutoSize = true;
+            unitsInStockLabel.Location = new System.Drawing.Point(12, 196);
+            unitsInStockLabel.Name = "unitsInStockLabel";
+            unitsInStockLabel.Size = new System.Drawing.Size(77, 13);
+            unitsInStockLabel.TabIndex = 13;
+            unitsInStockLabel.Text = "Units In Stock:";
+            // 
+            // unitsOnOrderLabel
+            // 
+            unitsOnOrderLabel.AutoSize = true;
+            unitsOnOrderLabel.Location = new System.Drawing.Point(12, 222);
+            unitsOnOrderLabel.Name = "unitsOnOrderLabel";
+            unitsOnOrderLabel.Size = new System.Drawing.Size(80, 13);
+            unitsOnOrderLabel.TabIndex = 15;
+            unitsOnOrderLabel.Text = "Units On Order:";
+            // 
+            // reorderLevelLabel
+            // 
+            reorderLevelLabel.AutoSize = true;
+            reorderLevelLabel.Location = new System.Drawing.Point(12, 248);
+            reorderLevelLabel.Name = "reorderLevelLabel";
+            reorderLevelLabel.Size = new System.Drawing.Size(77, 13);
+            reorderLevelLabel.TabIndex = 17;
+            reorderLevelLabel.Text = "Reorder Level:";
+            // 
+            // discontinuedLabel
+            // 
+            discontinuedLabel.AutoSize = true;
+            discontinuedLabel.Location = new System.Drawing.Point(12, 276);
+            discontinuedLabel.Name = "discontinuedLabel";
+            discontinuedLabel.Size = new System.Drawing.Size(72, 13);
+            discontinuedLabel.TabIndex = 19;
+            discontinuedLabel.Text = "Discontinued:";
             // 
             // productsBindingNavigator
             // 
@@ -128,6 +218,41 @@
             this.productsBindingNavigator.Size = new System.Drawing.Size(819, 25);
             this.productsBindingNavigator.TabIndex = 0;
             this.productsBindingNavigator.Text = "bindingNavigator1";
+            // 
+            // bindingNavigatorAddNewItem
+            // 
+            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
+            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
+            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorAddNewItem.Text = "Add new";
+            // 
+            // productsBindingSource
+            // 
+            this.productsBindingSource.DataMember = "Products";
+            this.productsBindingSource.DataSource = this.northwindDataSet;
+            // 
+            // northwindDataSet
+            // 
+            this.northwindDataSet.DataSetName = "NorthwindDataSet";
+            this.northwindDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // bindingNavigatorCountItem
+            // 
+            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
+            this.bindingNavigatorCountItem.Text = "of {0}";
+            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
+            // 
+            // bindingNavigatorDeleteItem
+            // 
+            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
+            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
+            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorDeleteItem.Text = "Delete";
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -161,16 +286,9 @@
             this.bindingNavigatorPositionItem.Text = "0";
             this.bindingNavigatorPositionItem.ToolTipText = "Current position";
             // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(39, 22);
-            this.bindingNavigatorCountItem.Text = "of {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
-            // 
             // bindingNavigatorSeparator1
             // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
             this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
             // bindingNavigatorMoveNextItem
@@ -193,26 +311,8 @@
             // 
             // bindingNavigatorSeparator2
             // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // bindingNavigatorAddNewItem
-            // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorAddNewItem.Text = "Add new";
-            // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorDeleteItem.Text = "Delete";
             // 
             // productsBindingNavigatorSaveItem
             // 
@@ -221,33 +321,16 @@
             this.productsBindingNavigatorSaveItem.Name = "productsBindingNavigatorSaveItem";
             this.productsBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
             this.productsBindingNavigatorSaveItem.Text = "Save Data";
-            this.productsBindingNavigatorSaveItem.Click += new System.EventHandler(this.productsBindingNavigatorSaveItem_Click_1);
-            // 
-            // productIDLabel
-            // 
-            productIDLabel.AutoSize = true;
-            productIDLabel.Location = new System.Drawing.Point(12, 38);
-            productIDLabel.Name = "productIDLabel";
-            productIDLabel.Size = new System.Drawing.Size(61, 13);
-            productIDLabel.TabIndex = 1;
-            productIDLabel.Text = "Product ID:";
+            this.productsBindingNavigatorSaveItem.Click += new System.EventHandler(this.productsBindingNavigatorSaveItem_Click);
             // 
             // productIDTextBox
             // 
             this.productIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productsBindingSource, "ProductID", true));
             this.productIDTextBox.Location = new System.Drawing.Point(108, 35);
             this.productIDTextBox.Name = "productIDTextBox";
+            this.productIDTextBox.ReadOnly = true;
             this.productIDTextBox.Size = new System.Drawing.Size(171, 20);
             this.productIDTextBox.TabIndex = 2;
-            // 
-            // productNameLabel
-            // 
-            productNameLabel.AutoSize = true;
-            productNameLabel.Location = new System.Drawing.Point(12, 64);
-            productNameLabel.Name = "productNameLabel";
-            productNameLabel.Size = new System.Drawing.Size(78, 13);
-            productNameLabel.TabIndex = 3;
-            productNameLabel.Text = "Product Name:";
             // 
             // productNameTextBox
             // 
@@ -256,15 +339,6 @@
             this.productNameTextBox.Name = "productNameTextBox";
             this.productNameTextBox.Size = new System.Drawing.Size(171, 20);
             this.productNameTextBox.TabIndex = 4;
-            // 
-            // supplierIDLabel
-            // 
-            supplierIDLabel.AutoSize = true;
-            supplierIDLabel.Location = new System.Drawing.Point(12, 90);
-            supplierIDLabel.Name = "supplierIDLabel";
-            supplierIDLabel.Size = new System.Drawing.Size(62, 13);
-            supplierIDLabel.TabIndex = 5;
-            supplierIDLabel.Text = "Supplier ID:";
             // 
             // supplierIDComboBox
             // 
@@ -279,14 +353,10 @@
             this.supplierIDComboBox.TabIndex = 6;
             this.supplierIDComboBox.ValueMember = "SupplierID";
             // 
-            // categoryIDLabel
+            // suppliersBindingSource
             // 
-            categoryIDLabel.AutoSize = true;
-            categoryIDLabel.Location = new System.Drawing.Point(12, 117);
-            categoryIDLabel.Name = "categoryIDLabel";
-            categoryIDLabel.Size = new System.Drawing.Size(66, 13);
-            categoryIDLabel.TabIndex = 7;
-            categoryIDLabel.Text = "Category ID:";
+            this.suppliersBindingSource.DataMember = "Suppliers";
+            this.suppliersBindingSource.DataSource = this.northwindDataSet;
             // 
             // categoryIDComboBox
             // 
@@ -301,14 +371,10 @@
             this.categoryIDComboBox.TabIndex = 8;
             this.categoryIDComboBox.ValueMember = "CategoryID";
             // 
-            // quantityPerUnitLabel
+            // categoriesBindingSource
             // 
-            quantityPerUnitLabel.AutoSize = true;
-            quantityPerUnitLabel.Location = new System.Drawing.Point(12, 144);
-            quantityPerUnitLabel.Name = "quantityPerUnitLabel";
-            quantityPerUnitLabel.Size = new System.Drawing.Size(90, 13);
-            quantityPerUnitLabel.TabIndex = 9;
-            quantityPerUnitLabel.Text = "Quantity Per Unit:";
+            this.categoriesBindingSource.DataMember = "Categories";
+            this.categoriesBindingSource.DataSource = this.northwindDataSet;
             // 
             // quantityPerUnitTextBox
             // 
@@ -318,15 +384,6 @@
             this.quantityPerUnitTextBox.Size = new System.Drawing.Size(171, 20);
             this.quantityPerUnitTextBox.TabIndex = 10;
             // 
-            // unitPriceLabel
-            // 
-            unitPriceLabel.AutoSize = true;
-            unitPriceLabel.Location = new System.Drawing.Point(12, 170);
-            unitPriceLabel.Name = "unitPriceLabel";
-            unitPriceLabel.Size = new System.Drawing.Size(56, 13);
-            unitPriceLabel.TabIndex = 11;
-            unitPriceLabel.Text = "Unit Price:";
-            // 
             // unitPriceTextBox
             // 
             this.unitPriceTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productsBindingSource, "UnitPrice", true));
@@ -334,15 +391,6 @@
             this.unitPriceTextBox.Name = "unitPriceTextBox";
             this.unitPriceTextBox.Size = new System.Drawing.Size(171, 20);
             this.unitPriceTextBox.TabIndex = 12;
-            // 
-            // unitsInStockLabel
-            // 
-            unitsInStockLabel.AutoSize = true;
-            unitsInStockLabel.Location = new System.Drawing.Point(12, 196);
-            unitsInStockLabel.Name = "unitsInStockLabel";
-            unitsInStockLabel.Size = new System.Drawing.Size(77, 13);
-            unitsInStockLabel.TabIndex = 13;
-            unitsInStockLabel.Text = "Units In Stock:";
             // 
             // unitsInStockTextBox
             // 
@@ -352,15 +400,6 @@
             this.unitsInStockTextBox.Size = new System.Drawing.Size(171, 20);
             this.unitsInStockTextBox.TabIndex = 14;
             // 
-            // unitsOnOrderLabel
-            // 
-            unitsOnOrderLabel.AutoSize = true;
-            unitsOnOrderLabel.Location = new System.Drawing.Point(12, 222);
-            unitsOnOrderLabel.Name = "unitsOnOrderLabel";
-            unitsOnOrderLabel.Size = new System.Drawing.Size(80, 13);
-            unitsOnOrderLabel.TabIndex = 15;
-            unitsOnOrderLabel.Text = "Units On Order:";
-            // 
             // unitsOnOrderTextBox
             // 
             this.unitsOnOrderTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productsBindingSource, "UnitsOnOrder", true));
@@ -369,15 +408,6 @@
             this.unitsOnOrderTextBox.Size = new System.Drawing.Size(171, 20);
             this.unitsOnOrderTextBox.TabIndex = 16;
             // 
-            // reorderLevelLabel
-            // 
-            reorderLevelLabel.AutoSize = true;
-            reorderLevelLabel.Location = new System.Drawing.Point(12, 248);
-            reorderLevelLabel.Name = "reorderLevelLabel";
-            reorderLevelLabel.Size = new System.Drawing.Size(77, 13);
-            reorderLevelLabel.TabIndex = 17;
-            reorderLevelLabel.Text = "Reorder Level:";
-            // 
             // reorderLevelTextBox
             // 
             this.reorderLevelTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productsBindingSource, "ReorderLevel", true));
@@ -385,15 +415,6 @@
             this.reorderLevelTextBox.Name = "reorderLevelTextBox";
             this.reorderLevelTextBox.Size = new System.Drawing.Size(171, 20);
             this.reorderLevelTextBox.TabIndex = 18;
-            // 
-            // discontinuedLabel
-            // 
-            discontinuedLabel.AutoSize = true;
-            discontinuedLabel.Location = new System.Drawing.Point(12, 276);
-            discontinuedLabel.Name = "discontinuedLabel";
-            discontinuedLabel.Size = new System.Drawing.Size(72, 13);
-            discontinuedLabel.TabIndex = 19;
-            discontinuedLabel.Text = "Discontinued:";
             // 
             // discontinuedCheckBox
             // 
@@ -404,16 +425,6 @@
             this.discontinuedCheckBox.TabIndex = 20;
             this.discontinuedCheckBox.Text = "checkBox1";
             this.discontinuedCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // productsBindingSource
-            // 
-            this.productsBindingSource.DataMember = "Products";
-            this.productsBindingSource.DataSource = this.northwindDataSet;
-            // 
-            // northwindDataSet
-            // 
-            this.northwindDataSet.DataSetName = "NorthwindDataSet";
-            this.northwindDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // productsTableAdapter
             // 
@@ -432,19 +443,9 @@
             // 
             this.order_DetailsTableAdapter.ClearBeforeFill = true;
             // 
-            // suppliersBindingSource
-            // 
-            this.suppliersBindingSource.DataMember = "Suppliers";
-            this.suppliersBindingSource.DataSource = this.northwindDataSet;
-            // 
             // suppliersTableAdapter
             // 
             this.suppliersTableAdapter.ClearBeforeFill = true;
-            // 
-            // categoriesBindingSource
-            // 
-            this.categoriesBindingSource.DataMember = "Categories";
-            this.categoriesBindingSource.DataSource = this.northwindDataSet;
             // 
             // categoriesTableAdapter
             // 

@@ -20,14 +20,6 @@ namespace Lab3_Haotian_Zhang
 
         private void productsBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
-            this.Validate();
-            this.productsBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.northwindDataSet);
-
-        }
-
-        private void productsBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
-        {
             try
             {
                 this.Validate();
@@ -52,6 +44,10 @@ namespace Lab3_Haotian_Zhang
             catch (Exception ex)
             {
                 MessageBox.Show("Other error while saving data: " + ex.Message);
+            }
+            finally
+            {
+                this.productsTableAdapter.Fill(this.northwindDataSet.Products);
             }
 
         }
