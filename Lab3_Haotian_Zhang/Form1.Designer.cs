@@ -41,7 +41,6 @@
             System.Windows.Forms.Label discontinuedLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.productsBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.productsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.northwindDataSet = new Lab3_Haotian_Zhang.NorthwindDataSet();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
@@ -54,6 +53,7 @@
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.productsBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.productIDTextBox = new System.Windows.Forms.TextBox();
             this.productNameTextBox = new System.Windows.Forms.TextBox();
@@ -191,7 +191,7 @@
             // 
             // productsBindingNavigator
             // 
-            this.productsBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
+            this.productsBindingNavigator.AddNewItem = null;
             this.productsBindingNavigator.BindingSource = this.productsBindingSource;
             this.productsBindingNavigator.CountItem = this.bindingNavigatorCountItem;
             this.productsBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
@@ -218,15 +218,6 @@
             this.productsBindingNavigator.Size = new System.Drawing.Size(819, 25);
             this.productsBindingNavigator.TabIndex = 0;
             this.productsBindingNavigator.Text = "bindingNavigator1";
-            // 
-            // bindingNavigatorAddNewItem
-            // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorAddNewItem.Text = "Add new";
             // 
             // productsBindingSource
             // 
@@ -313,6 +304,16 @@
             // 
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
+            // bindingNavigatorAddNewItem
+            // 
+            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
+            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
+            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorAddNewItem.Text = "Add new";
+            this.bindingNavigatorAddNewItem.Click += new System.EventHandler(this.bindingNavigatorAddNewItem_Click_1);
             // 
             // productsBindingNavigatorSaveItem
             // 

@@ -22,6 +22,11 @@ namespace Lab3_Haotian_Zhang
         {
             try
             {
+                //prevent empty string to be saved to DB
+                if (productNameTextBox.Text=="")
+                {
+                    throw new NoNullAllowedException ();
+                }
                 this.Validate();
                 this.productsBindingSource.EndEdit();
                 this.tableAdapterManager.UpdateAll(this.northwindDataSet);
@@ -71,6 +76,33 @@ namespace Lab3_Haotian_Zhang
             {
                 MessageBox.Show("Other error while saving data: " + ex.Message);
             }
+        }
+
+        private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bindingNavigatorAddNewItem_Click_1(object sender, EventArgs e)
+        {
+            //fix crush on double click +, same idead for fixing crush on "<"
+            try
+
+            {
+
+                this.productsBindingSource.AddNew();
+
+            }
+
+            catch (Exception ex)
+
+            {
+
+                MessageBox.Show(ex.Message);
+
+            }
+
+
         }
     }
 }
